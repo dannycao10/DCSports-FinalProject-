@@ -1,0 +1,30 @@
+.logonav{
+    font-family: Impact, fantasy;
+    font-size:xx-large;
+    color: #85bb65 !important;
+    text-shadow: 2px 0 0 white, -2px 0 0 white, 0 2px 0 white, 0 -2px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white;
+}
+
+.navbar {
+	background: linear-gradient(-45deg, #85bb65, gold, #85bb65, gold);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    min-height: 100px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.navoption{
+    font-size: large;
+    font-weight: bold;
+}
