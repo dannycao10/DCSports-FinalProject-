@@ -1,57 +1,57 @@
 import { Row, Col, Image, Tab, Nav } from "react-bootstrap";
+import '../style/Home.css'
+import Landing from "../components/Landing.jsx"
 
 function Home() {
     return (
         <div>
-            <Tab.Container defaultActiveKey="home" >
-                <Row className="pt-2 px-3">
-                    <Col sm={2} className="">
-                        <Nav color="dark" variant="pills" className="flex-column">
-                            <Nav.Item>
-                                <Nav.Link eventKey="home">Home</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="basketball">Basketball</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="football">Football</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="baseball">Baseball</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="hockey">Hockey</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="soccer">Soccer</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="other">Other Sports</Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                    </Col>
-                    <Col>
-                        <Tab.Content className="pt-3 px-5">
-                            <Tab.Pane eventKey="home">
-                                
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="basketball">
-                                
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="football">
-                                
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="hockey">
-                               
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="soccer">
-                               
-                            </Tab.Pane>
-                            <Tab.Pane eventKey="other">
-                               
-                               </Tab.Pane>
-                        </Tab.Content>
-                    </Col>
+            <Tab.Container defaultActiveKey="home" className="tabcontainer">
+                <Row className="pt-0 px-3 homerow">
+                    <Nav color="dark" variant="pills" className="flex-row">
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="home" className="homeitem">Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="basketball" className="homeitem">Basketball</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="football" className="homeitem">Football</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="baseball" className="homeitem">Baseball</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="hockey" className="homeitem">Hockey</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="soccer" className="homeitem">Soccer</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item className="eachtab">
+                            <Nav.Link eventKey="other" className="homeitem">Other Sports</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Row>
+                <Row>
+                    <Tab.Content className="pt-3 px-5">
+                        <Tab.Pane eventKey="home">
+                            <Landing/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="basketball">
+
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="football">
+
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="hockey">
+
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="soccer">
+
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="other">
+
+                        </Tab.Pane>
+                    </Tab.Content>
                 </Row>
             </Tab.Container>
         </div>
