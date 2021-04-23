@@ -1,0 +1,42 @@
+.favorite{
+    height:2%;
+    margin-top: 4%;
+    background-color: #85bb65;
+    border-color: gold;
+}
+
+.favorite:hover{
+    background: linear-gradient(-45deg, #85bb65, gold, #85bb65, gold);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    cursor: pointer;
+}
+
+.submitsu{
+    background-color: #85bb65;
+    border-color: gold;
+}
+
+.submitsu:hover{
+    background: linear-gradient(-45deg, #85bb65, gold, #85bb65, gold);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    cursor: pointer;
+}
+
+.submitsu:disabled{
+    background-color: #85bb65;
+    border-color: gold;
+    opacity: .65;
+}
+
+.form-control:focus{
+    border-color: gold;
+}
+
+.suformtxt{
+    font-family: Impact, fantasy;
+    color: #85bb65 !important;
+    text-shadow: 2px 0 0 gold, -2px 0 0 gold, 0 2px 0 gold, 0 -2px 0 gold, 1px 1px gold, -1px -1px 0 gold, 1px -1px 0 gold, -1px 1px 0 gold;
+    font-size: xx-large;
+}

@@ -1,6 +1,7 @@
 import { Row, Col, Image, Tab, Nav } from "react-bootstrap";
 import '../style/Home.css'
 import Landing from "../components/Landing.jsx"
+import Basketball from "../components/Basketball.jsx"
 
 function Home() {
     return (
@@ -31,13 +32,13 @@ function Home() {
                         </Nav.Item>
                     </Nav>
                 </Row>
-                <Row>
+                <Row className="justify-content-md-center">
                     <Tab.Content className="pt-3 px-5">
                         <Tab.Pane eventKey="home">
                             <Landing/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="basketball">
-
+                            <Basketball/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="football">
 
