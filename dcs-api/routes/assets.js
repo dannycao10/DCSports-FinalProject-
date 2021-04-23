@@ -48,7 +48,7 @@ Router.post('/validateToken', async (req, res) => {
         if (!verified) { return res.send(false).status(400); }
 
         let existing; // will be assigned to an existing user if one exists
-        await Users.findById(verified.id, (err, user) => {
+        await Users.findById(verified._id, (err, user) => {
             if (err) {
                 return res.send(false).status(400);
             }

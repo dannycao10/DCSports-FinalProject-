@@ -39,6 +39,7 @@ export default function Signup() {
                 userInfo: loginRes.data.userInfo
             });
             localStorage.setItem("auth-token", loginRes.data.token);
+            console.log("hi")
             history.push('/');
         } catch (err) {
             console.log(err.response.data);

@@ -21,6 +21,8 @@ function App() {
     }
   });
 
+  console.log(userData);
+
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
@@ -47,7 +49,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext.Provider>
+      <UserContext.Provider value={{ userData, setUserData }}>
         <NavbarContainer />
       </UserContext.Provider>
     </BrowserRouter >
