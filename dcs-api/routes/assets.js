@@ -43,13 +43,14 @@ Router.post('/userCreate',
 
 Router.post('/validateToken', async (req, res) => {
     try {
-        const token = req.body["auth-token"];
+        // const token = req.body["auth-token"];
+        const token = req.header("auth-token");
         if (!token) { return res.send(false).status(400); }
         const verified = jwt.verify(token, constants.jwt_pass);
         if (!verified) { return res.send(false).status(400); }
-
+        
         let existing;
-        await Users.findById(verified._id, (err, user) => {
+        await Users.findById(verified.id, (err, user) => {
             if (err) {
                 return res.send(false).status(400);
             }
