@@ -21,8 +21,6 @@ function App() {
     }
   });
 
-  console.log(userData);
-
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
@@ -30,16 +28,17 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post(uri + "/users/validateToken", null, {
+      const tokenRes = await Axios.post(uri + "/assets/validateToken", null, {
         headers: { "auth-token": token }
       });
       if (tokenRes.data.valid) {
-        const userRes = await Axios.get(uri + "/users/" + tokenRes.data.user._id);
+        const userRes = await Axios.get(uri + "/assets/" + tokenRes.data.user._id);
         setUserData({
           token: tokenRes.data.token,
           userInfo: userRes.data,
         });
       }
+      console.log(userData)
       if (!userData) {
         console.log("still not here");
       }

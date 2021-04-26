@@ -17,27 +17,28 @@ function Login() {
     const history = useHistory();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { userData, setUserData } = useContext(UserContext);
-  
+    const {userData, setUserData } = useContext(UserContext);
+
     function validateForm() {
-      return username.length > 0 && password.length > 0;
+        return username.length > 0 && password.length > 0;
     }
-  
+
     async function handleSubmit(event) {
-      event.preventDefault();
-      const loginUser = { username, password };
-      const url = uri + "/users/login";
-      try {
-        const loginRes = await Axios.post(url, loginUser);
-        setUserData({
-          token: loginRes.data.token,
-          userInfo: loginRes.data.userInfo
-        });
-        localStorage.setItem("auth-token", loginRes.data.token);
-        history.push('/');
-      } catch (err) {
-        console.log(err.response.data);
-      }
+        event.preventDefault();
+        const loginUser = { username, password };
+        const url = uri + "/assets/login";
+        try {
+            await Axios.post(url, loginUser).then(loginRes=> {
+                setUserData({
+                    token: loginRes.data.token,
+                    userInfo: loginRes.data.existing
+                });
+                localStorage.setItem("auth-token", loginRes.data.token);
+                history.push('/');
+            });
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (
@@ -68,7 +69,7 @@ function Login() {
                     <Button block size="lg" type="submit" className="loginbutton" disabled={!validateForm()}>
                         Sign In
                     </Button>
-                    <h6 className="landingsu mt-2">Don't have an account? <a href="/registration" className="litsu">Sign up</a></h6>
+                    <h6 className="landingsu mt-2">Don't have an account? <a href="/signup" className="litsu">Sign up</a></h6>
                 </Form>
             </Container>
             <Row className="justify-content-md-center mt-5">

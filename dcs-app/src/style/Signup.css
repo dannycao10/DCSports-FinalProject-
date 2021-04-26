@@ -40,3 +40,9 @@
     text-shadow: 2px 0 0 gold, -2px 0 0 gold, 0 2px 0 gold, 0 -2px 0 gold, 1px 1px gold, -1px -1px 0 gold, 1px -1px 0 gold, -1px 1px 0 gold;
     font-size: xx-large;
 }
+
+.failmessage{
+    text-align: center;
+    font-size: smaller;
+    color: red;
+}

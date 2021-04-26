@@ -20,16 +20,18 @@ export default function Signup() {
     const [favorite, setFavorite] = useState([]);
     const [dcs, setDcs] = useState(10000);
     const { setUserData } = useContext(UserContext);
+    const [failed, setFailed] = useState(false);
 
     const statesList = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FM', 'FL', 'GA', 'GU', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MH', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'MP', 'OH', 'OK', 'OR', 'PW', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VI', 'VA', 'WA', 'WV', 'WI', 'WY'];
 
     function validateForm() {
-        return username.length > 0 && password.length > 0 && passwordCheck.length > 0 && fname.length > 0 && lname.length > 0 && password === passwordCheck;
+        return username.length > 0 && password.length > 0 && passwordCheck.length > 0 && fname.length > 0 && lname.length > 0 && password === passwordCheck && city.length > 0;
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
         const signupUser = { username, password, fname, lname, city, state, unc, favorite, dcs };
+        setFailed(false);
         try {
             await Axios.post(uri + "/assets/userCreate", signupUser);
             const loginUser = { username, password };
@@ -39,22 +41,22 @@ export default function Signup() {
                 userInfo: loginRes.data.userInfo
             });
             localStorage.setItem("auth-token", loginRes.data.token);
-            console.log("hi")
             history.push('/');
         } catch (err) {
+            setFailed(true);
             console.log(err.response.data);
         }
     }
 
     const isUnc = (id) =>{
-        if(id == "No"){
-            setUnc(false);
-            setDcs(10000);
-            setisUncst("No");
-        } else {
+        if(id == "Yes"){
             setUnc(true);
             setDcs(20000);
             setisUncst("Yes");
+        } else {
+            setUnc(false);
+            setDcs(10000);
+            setisUncst("No");
         }
     }
 
@@ -102,6 +104,7 @@ export default function Signup() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <Form.Text muted>Both password entries must be the same</Form.Text>
                         </Form.Group>
                         <Form.Group as={Col} size="lg" controlId="passwordCheck">
                             <Form.Label>Password Confirmation</Form.Label>
@@ -111,6 +114,7 @@ export default function Signup() {
                                 value={passwordCheck}
                                 onChange={(e) => setPasswordCheck(e.target.value)}
                             />
+                            <Form.Text muted>Both password entries must be the same</Form.Text>
                         </Form.Group>
                     </Form.Row>
                     <Form.Row>
@@ -134,7 +138,7 @@ export default function Signup() {
                             <Form.Label>City</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Chapel Hill"
+                                placeholder="Enter city here"
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
                             />
@@ -151,10 +155,10 @@ export default function Signup() {
                             </Form.Control>
                         </Form.Group>
                     </Form.Row>
+                    {failed ? <h5 className="failmessage">If you couldn't signup, your username has already been taken</h5>: <Form.Text muted className="failmessage">If sign up is currently disabled, then not all required fields are complete</Form.Text>}
                     <Button block size="lg" type="submit" className="submitsu" disabled={!validateForm()}>
                         Sign Up
                     </Button>
-
                 </Form>
             </Container> </>
     );

@@ -35,6 +35,7 @@ Router.post('/userCreate',
                 return res.send(user).status(200);
             }
         } catch (err) {
+            console.log(err);
             return res.send('Error while creating new user').status(400);
         }
     }
@@ -62,6 +63,7 @@ Router.post('/validateToken', async (req, res) => {
             }
         })
     } catch (err) {
+        console.log(err);
         return res.send("Could not validate token").status(304);
     }
 })
@@ -69,6 +71,7 @@ Router.post('/validateToken', async (req, res) => {
 Router.post('/login', async (req, res) => {
     try {
         let existing;
+        let token;
         let { username, password } = req.body;
         await Users.findOne({ username }).then(async (user, err) => {
             if (err) return res.send("Error finding user").status(400);
@@ -76,34 +79,39 @@ Router.post('/login', async (req, res) => {
                 await bcrypt.compare(password, user.password).then(resp => {
                     if (!resp) return res.status(400).send('Invalid password. Nice try, bot.');
                     else {
-                        const token = jwt.sign({ id: user._id }, constants.jwt_pass);
+                        const t = jwt.sign({ id: user._id }, constants.jwt_pass);
+                        token = t;
                         delete user.password;
                         return res.status(200).send({
-                            existing: user,
-                            token
+                            token,
+                            existing: user
                         });
                     }
                 });
             }
             existing = user;
         })
-        res.json({
-            token,
-            userInfo: {
-              username: existing.username,
-              fname: existing.fname,
-              lname: existing.lname,
-              city: existing.city,
-              state: existing.state,
-              unc: existing.unc,
-              favorite: existing.favorite,
-              dcs: existing.dcs,
-            }
-        });
         console.log("Successfully logged in " + existing.username)
     } catch (err) {
         return res.status(400).send("Error logging in. Please try again.");
     }
+});
+
+Router.get("/:id", async (req, res) => {
+    const userId = req.params.id;
+    Users.findOne({ _id: new Mongoose.Types.ObjectId(userId.toString()) }, function (error, result) {
+      if (error) throw error;
+      return res.json({
+        username: result.username,
+        fname: result.fname,
+        lname: result.lname,
+        city: result.city,
+        state: result.state,
+        unc: result.unc,
+        favorite: result.favorite,
+        dcs: result.dcs,
+      });
+    });
 });
 
 module.exports = Router;

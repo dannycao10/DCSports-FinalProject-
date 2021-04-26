@@ -28,7 +28,7 @@ function NavbarContainer() {
     };
 
     return (
-        (userData.userInfo) ?
+        (userData.token !== undefined) ?
         <>
             <Navbar sticky="top" bg="light" variant="light" className="navbar" expand="md" collapseOnSelect>
                 <Navbar.Brand className="mr-auto logo-nav logonav" href="/">DC Sports</Navbar.Brand>
@@ -36,7 +36,7 @@ function NavbarContainer() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto roboto navoption">
                         <Nav.Link as={HLink} to="/profile">Welcome, {userData.userInfo.fname}</Nav.Link>
-                        <Nav.Link as={HLink} to="/profile">{userData.userInfo.dcs}DCs</Nav.Link>
+                        <Nav.Link as={HLink} to="/profile">${userData.userInfo.dcs}</Nav.Link>
                         <NavDropdown title="Place Bets" id="basic-nav-dropdown" className="position-sticky">
                             <NavDropdown.Item href="/freebets">Free Bets</NavDropdown.Item>
                             <NavDropdown.Divider />
@@ -80,12 +80,12 @@ function NavbarContainer() {
                             <NavDropdown.Item href="/info/#contactSection">Contact Us</NavDropdown.Item> */}
                         </NavDropdown>
                     </Nav>
-                    <Button as={HLink} to="/registration" variant="dark" className="ml-2 navoption">Sign Up</Button>
+                    <Button as={HLink} to="/signup" variant="dark" className="ml-2 navoption">Sign Up</Button>
                 </Navbar.Collapse>
             </Navbar>
             <Switch id="bodyContent">
                 <Route exact path="/" component={Home} />
-                <Route path='/registration' component={Signup} />
+                <Route path='/signup' component={Signup} />
                 <Route path='/login' component={Login} />
                 <Route path='/freebets' component={Free} />
                 <Route path='/paidbets' component={Paid} />
