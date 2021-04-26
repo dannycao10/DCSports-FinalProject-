@@ -31,11 +31,12 @@ function App() {
       const tokenRes = await Axios.post(uri + "/assets/validateToken", null, {
         headers: { "auth-token": token }
       });
+      console.log(tokenRes);
       if (tokenRes.data.valid) {
-        const userRes = await Axios.get(uri + "/assets/" + tokenRes.data.user._id);
+        // const userRes = await Axios.get(uri + "/assets/" + tokenRes.data.user._id);
         setUserData({
           token: tokenRes.data.token,
-          userInfo: userRes.data,
+          userInfo: tokenRes.data.user,
         });
       }
       console.log(userData)

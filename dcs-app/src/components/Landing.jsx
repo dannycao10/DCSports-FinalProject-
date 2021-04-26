@@ -1,10 +1,16 @@
-import { Form, Container, Button } from 'react-bootstrap';
+import { Form, Container, Button, Row, Col, Image } from 'react-bootstrap';
 import Axios from "axios";
 import React, { useState, useContext, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import UserContext from '../context/UserContext.js';
 import uri from '../context/APIPort';
 import '../style/Landing.css'
+import nba from '../images/nba.png'
+import nfl from '../images/nfl.png'
+import mlb from '../images/mlb.png'
+import nhl from '../images/nhl.png'
+import ncaa from '../images/ncaa.png'
+import espn from '../images/espn.png'
 
 function Landing() {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -43,10 +49,35 @@ function Landing() {
         <div>
             <h1 className="landingpage mt-4">Welcome to</h1>
             <h1 className="landinglogo mt-2 mb-2"> <i className="fas fa-basketball-ball mr-2 basketball"></i> <i className="fas fa-hockey-puck mr-2 hockey"></i>DC Sports <i className="fas fa-baseball-ball ml-2 baseball"></i> <i className="fas fa-football-ball ml-2 football"></i></h1>
-            {userData.token !== undefined ?<h1 className="landingpage">{userData.userInfo.fname}, you currently have a balance of {userData.userInfo.dcs} DCs!</h1> : <h1 className="landingpage"> Where you can recieve sports score updates and gamble a little!</h1>}
+            {userData.token !== undefined ?<h1 className="landingpage">{userData.userInfo.fname}, you currently have a balance of {userData.userInfo.dcs} DCs</h1> : <h1 className="landingpage"> Where you can recieve sports score updates and gamble a little!</h1>}
             <h1 className="landinglogo mt-2 mb-2">So let the betting begin!</h1>
             <Container className="pt-2 col-md-6 mt-5">
-                {userData.token !== undefined ? <></>
+                {userData.token !== undefined ? 
+                <>
+                    <div className="fpg">
+                        <h3 className="landingpagesmall mb-5">Go bet (<a href="/freebets">free</a> or <a href="/paidbets">paid</a>), <a href="/games">play games</a>, check daily scores, or get sports news in the links below</h3>
+                        <Row className="">
+                            <Col>
+                                <a href="https://www.nba.com/" target="_blank" rel="noopener noreferrer"><Image src={nba} className="" fluid/></a>
+                            </Col>
+                            <Col>
+                                <a href="https://www.nfl.com/" target="_blank" rel="noopener noreferrer"><Image src={nfl} className="" fluid style={{ width: "70%", height: "85%"}}/></a>
+                            </Col>
+                            <Col>
+                                <a href="https://www.mlb.com/" target="_blank" rel="noopener noreferrer"><Image src={mlb} className="" fluid/></a>
+                            </Col>
+                            <Col>
+                                <a href="https://www.nhl.com/" target="_blank" rel="noopener noreferrer"><Image src={nhl} className="" fluid style={{ width: "70%", height: "85%"}}/></a>
+                            </Col>
+                            <Col>
+                                <a href="https://www.ncaa.com/" target="_blank" rel="noopener noreferrer"><Image src={ncaa} className="" fluid style={{ width: "70%", height: "85%"}}/></a>
+                            </Col>
+                            <Col>
+                                <a href="https://www.espn.com/" target="_blank" rel="noopener noreferrer"><Image src={espn} className="" fluid/></a>
+                            </Col>
+                        </Row>
+                    </div>
+                </>
                 :
                 <>
                     <h1 className="text-center pt-2 landingpageform">Login Here</h1>

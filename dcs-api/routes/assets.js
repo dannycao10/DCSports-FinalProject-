@@ -48,7 +48,7 @@ Router.post('/validateToken', async (req, res) => {
         const verified = jwt.verify(token, constants.jwt_pass);
         if (!verified) { return res.send(false).status(400); }
 
-        let existing; // will be assigned to an existing user if one exists
+        let existing;
         await Users.findById(verified._id, (err, user) => {
             if (err) {
                 return res.send(false).status(400);
@@ -97,21 +97,21 @@ Router.post('/login', async (req, res) => {
     }
 });
 
-Router.get("/:id", async (req, res) => {
-    const userId = req.params.id;
-    Users.findOne({ _id: new Mongoose.Types.ObjectId(userId.toString()) }, function (error, result) {
-      if (error) throw error;
-      return res.json({
-        username: result.username,
-        fname: result.fname,
-        lname: result.lname,
-        city: result.city,
-        state: result.state,
-        unc: result.unc,
-        favorite: result.favorite,
-        dcs: result.dcs,
-      });
-    });
-});
+// Router.get("/:id", async (req, res) => {
+//     const userId = req.params.id;
+//     Users.findOne({ _id: new Mongoose.Types.ObjectId(userId.toString()) }, function (error, result) {
+//       if (error) throw error;
+//       return res.json({
+//         username: result.username,
+//         fname: result.fname,
+//         lname: result.lname,
+//         city: result.city,
+//         state: result.state,
+//         unc: result.unc,
+//         favorite: result.favorite,
+//         dcs: result.dcs,
+//       });
+//     });
+// });
 
 module.exports = Router;
