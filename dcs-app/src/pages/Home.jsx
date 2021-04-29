@@ -2,6 +2,11 @@ import { Row, Col, Image, Tab, Nav } from "react-bootstrap";
 import '../style/Home.css'
 import Landing from "../components/Landing.jsx"
 import Basketball from "../components/Basketball.jsx"
+import Hockey from "../components/Hockey.jsx"
+import Baseball from "../components/Baseball.jsx"
+import Football from "../components/Football.jsx"
+import Soccer from "../components/Soccer.jsx"
+import OtherSports from "../components/OtherSports.jsx"
 
 function Home() {
     return (
@@ -41,16 +46,19 @@ function Home() {
                             <Basketball/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="football">
-
+                            <Football/>
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="baseball">
+                            <Baseball/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="hockey">
-
+                            <Hockey/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="soccer">
-
+                            <Soccer/>
                         </Tab.Pane>
                         <Tab.Pane eventKey="other">
-
+                            <OtherSports/>
                         </Tab.Pane>
                     </Tab.Content>
                 </Row>

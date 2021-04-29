@@ -1,0 +1,24 @@
+.cards{
+    border-radius: 15px;
+}
+
+.score{
+    text-align: center;
+}
+
+.won{
+    font-weight: bold;
+}
+
+.preview{
+    color:grey;
+}
+
+.live{
+    font-weight: bold;
+    color:red;
+}
+
+.final{
+    font-weight: bold;
+}
