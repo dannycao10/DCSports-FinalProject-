@@ -110,7 +110,7 @@ function Soccer() {
                 </Container >
             }
 
-            <h1 className="landingpagesmall mt-2">Today's Premier League Scores</h1>
+            <h1 className="landingpagesmall mt-5">Today's Premier League Scores</h1>
             <hr />
             {premData.length == 0 ? <h1 className="landingpagesmall mt-3">There are no Premier League games today</h1> :
                 < Container >
