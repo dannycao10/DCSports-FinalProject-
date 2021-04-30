@@ -1,7 +1,6 @@
 import '../style/Hockey.css'
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Container, Row, Col, Modal, Image } from "react-bootstrap";
+import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import * as All from 'react-mlb-logos';
 import mlb from '../images/mlb.png'
 
@@ -102,7 +101,7 @@ function Baseball() {
                     <Row>
                         {mlbdata.map((s) => {
                             return (
-                                <Col className="content" xs={mlb.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={mlb.length == 1 ? 12 : 6} key={s.gamePk}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
@@ -112,7 +111,7 @@ function Baseball() {
                                                     {/* {teams.map((a) => { if(a.name == s.teams.away.team.name){return <Image src={a.logo} style={{width:"40%", height:"60%"}}></Image>}})} */}
                                                 </Col>
                                                 <Col className="score">
-                                                    {s.status.abstractGameState == "Preview" ? <div className="mb-4">&emsp;-&emsp;</div> : <div inline-text className="mb-4">{s.teams.away.score > s.teams.home.score && s.status.abstractGameState == "Final" ? <span className="won">{s.teams.away.score}</span> : <span>{s.teams.away.score}</span>} <span>&emsp;-&emsp;</span> {s.teams.away.score < s.teams.home.score && s.status.abstractGameState == "Final" ? <span className="won">{s.teams.home.score}</span> : <span>{s.teams.home.score}</span>}</div>}
+                                                    {s.status.abstractGameState == "Preview" ? <div className="mb-4">&emsp;-&emsp;</div> : <div inline-text="true" className="mb-4">{s.teams.away.score > s.teams.home.score && s.status.abstractGameState == "Final" ? <span className="won">{s.teams.away.score}</span> : <span>{s.teams.away.score}</span>} <span>&emsp;-&emsp;</span> {s.teams.away.score < s.teams.home.score && s.status.abstractGameState == "Final" ? <span className="won">{s.teams.home.score}</span> : <span>{s.teams.home.score}</span>}</div>}
                                                     {s.status.abstractGameState == "Live" ? <p className="live">{s.status.abstractGameState}</p> : s.status.abstractGameState == "Final" ? <p className="final">{s.status.abstractGameState}</p> : <p className="preview">{s.status.abstractGameState}</p>}
                                                 </Col>
                                                 <Col className="score">

@@ -6,3 +6,11 @@
     font-weight: bold;
     font-size: x-large;
 }
+
+.golfers{
+    text-align: left;
+}
+
+.pgascore{
+    text-align: right;
+}

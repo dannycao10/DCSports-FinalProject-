@@ -39,7 +39,7 @@ function Football() {
                     <Row>
                         {nflData.map((s) => {
                             return (
-                                <Col className="content" xs={nflData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={nflData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
@@ -71,7 +71,7 @@ function Football() {
                     <Row>
                         {ncaaData.map((s) => {
                             return (
-                                <Col className="content" xs={ncaaData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={ncaaData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>

@@ -26,25 +26,52 @@ function OtherSports() {
                     <Row>
                         {pgaData.map((s) => {
                             return (
-                                <Col className="content" xs={pgaData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={pgaData.length == 1 ? 12 : 6} key={s.name}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
-                                                {console.log(s.competitions[0].competitors[0])}
                                                 <div className="mustcenter">
                                                     <p className="pgaName">{s.name}</p>
-                                                    <span className="ml-3">Prize Pool: {s.displayPurse}</span> <span className="mr-3">&emsp; - &emsp;{s.courses[0].name}</span>
-                                                    <p className="mt-3">(Show Top 50 Players)</p>
-                                                    { s.competitions[0].competitors.slice(0, 50).map((c) =>{
+                                                    <hr/>
+                                                    <span className="ml-3">{s.courses[0].name}</span> <span className="mr-3">&emsp; - &emsp;Purse: {s.displayPurse}</span>
+                                                    <hr/>
+                                                    {s.status.type.description == "In Progress" ? <div><p className="mt-3 live">{s.competitions[0].status.type.detail}</p></div> : <div><p className="mt-3">{s.competitions[0].status.type.detail}</p></div>}
+                                                    <hr/>
+                                                    {console.log(s)}
+                                                    <Row className="mt-4 mb-1">
+                                                            <hr />
+                                                            <Col className="golfers ml-3"xs={2}>
+                                                            <span>Pos</span>
+                                                            </Col>
+                                                            <Col className="golfers">
+                                                            <span>Golfers</span>
+                                                            </Col>
+                                                            <Col className="pgascore mr-0" xs={2}>
+                                                            <span>Thru</span>
+                                                            </Col>
+                                                            <Col className="pgascore mr-4" xs={2}>
+                                                            <span>Total</span>
+                                                            </Col>
+                                                            <hr />
+                                                        </Row>
+                                                    { s.competitions[0].competitors.sort((a,b) => (a.ssortOrder > b.sortOrder) ? 1 : ((b.sortOrder > a.sortOrder) ? -1 : 0)).slice(0, 50).map((c) =>{
                                                         return(
-                                                        <Row>
-                                                            <Col>
+                                                        <Row className="mt-1 mb-1" key={c.athlete.displayName}>
+                                                            <hr />
+                                                            <Col className="golfers ml-3"xs={2}>
+                                                            <span>{c.status.position.displayName}</span>
+                                                            </Col>
+                                                            <Col className="golfers">
                                                             {c.athlete.headshot !== undefined ? <Image src={c.athlete.headshot.href} fluid style={{ width: "40px", height: "30px" }}></Image>: <></>}
                                                             <span>{c.athlete.displayName}</span>
                                                             </Col>
-                                                            <Col>
-                                                            <span>{c.score.displayValue}</span>
+                                                            <Col className="pgascore mr-0" xs={2}>
+                                                            <span>{c.status.displayThru == "18" ? c.status.displayValue : c.status.displayThru}</span>
                                                             </Col>
+                                                            <Col className="pgascore mr-4" xs={2}>
+                                                            <span>{c.statistics[0].displayValue}</span>
+                                                            </Col>
+                                                            <hr />
                                                         </Row>
                                                         )
                                                     }

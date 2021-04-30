@@ -84,11 +84,10 @@ function Soccer() {
                     <Row>
                         {champData.map((s) => {
                             return (
-                                <Col className="content" xs={champData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={champData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
-                                                {console.log(s)}
                                                 <Col className="score">
                                                     {s.competitions[0].status.type.completed && parseInt(s.competitions[0].competitors[1].score) > parseInt(s.competitions[0].competitors[0].score) ? <p className="won">{s.competitions[0].competitors[1].team.displayName}</p> : <p>{s.competitions[0].competitors[1].team.displayName}</p>}
                                                     <Image src={s.competitions[0].competitors[1].team.logo} fluid style={{ width: "55px", height: "60px" }}></Image>
@@ -118,7 +117,7 @@ function Soccer() {
                     <Row>
                         {premData.map((s) => {
                             return (
-                                <Col className="content" xs={premData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={premData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
@@ -150,7 +149,7 @@ function Soccer() {
                     <Row>
                         {ligaData.map((s) => {
                             return (
-                                <Col className="content" xs={ligaData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={ligaData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
@@ -183,7 +182,7 @@ function Soccer() {
                     <Row>
                         {gerData.map((s) => {
                             return (
-                                <Col className="content" xs={gerData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={gerData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
@@ -216,7 +215,7 @@ function Soccer() {
                     <Row>
                         {itaData.map((s) => {
                             return (
-                                <Col className="content" xs={itaData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={itaData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
@@ -249,7 +248,7 @@ function Soccer() {
                     <Row>
                         {fraData.map((s) => {
                             return (
-                                <Col className="content" xs={fraData.length == 1 ? 12 : 6}>
+                                <Col className="content" xs={fraData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
