@@ -109,21 +109,22 @@ function Basketball() {
                 < Container >
                     <Row>
                         {nbaData.map((s) => {
+                            console.log(s)
                             return (
                                 <Col className="content" xs={nbaData.length == 1 ? 12 : 6} key={s.gameId}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
                                             <Row>
                                                 <Col className="score">
-                                                    {!s.isGameActivated && s.period.current == 4 && s.vTeam.score > s.hTeam.score ? <p className="mb-0 won">{s.vTeam.triCode}</p> : <p className="mb-0">{s.vTeam.triCode}</p>}
+                                                    {!s.isGameActivated && s.period.current >= 4 && parseInt(s.vTeam.score) > parseInt(s.hTeam.score) ? <p className="mb-0 won">{s.vTeam.triCode}</p> : <p className="mb-0">{s.vTeam.triCode}</p>}
                                                     {setlogo(s.vTeam.triCode)}
                                                 </Col>
                                                 <Col className="score">
-                                                    <div className="mb-4">{!s.isGameActivated && s.period.current == 4 && s.vTeam.score > s.hTeam.score ? <span className="won">{s.vTeam.score}</span> : <span>{s.vTeam.score}</span>}<span>&emsp;-&emsp;</span>{!s.isGameActivated && s.period.current == 4 && s.hTeam.score > s.vTeam.score ? <span className="won">{s.hTeam.score}</span> : <span>{s.hTeam.score}</span>}</div>
-                                                    {s.isGameActivated ? s.period.isEndOfPeriod ? s.period.isHalftime ? <span className="live">Halftime</span> : <span className="live">End of Quarter {s.period.current}</span> : <div><span className="live">{s.clock}</span><span className="live">&emsp;Quarter {s.period.current}</span></div> : s.period.current == 4 ? <span className="final">Final</span> : <span>{s.startTimeEastern}</span>}
+                                                    <div className="mb-4">{!s.isGameActivated && s.period.current >= 4 && parseInt(s.vTeam.score) > parseInt(s.hTeam.score) ? <span className="won">{s.vTeam.score}</span> : <span>{s.vTeam.score}</span>}<span>&emsp;-&emsp;</span>{!s.isGameActivated && s.period.current >= 4 && parseInt(s.hTeam.score) > parseInt(s.vTeam.score) ? <span className="won">{s.hTeam.score}</span> : <span>{s.hTeam.score}</span>}</div>
+                                                    {s.isGameActivated ? s.period.isEndOfPeriod ? s.period.isHalftime ? <span className="live">Halftime</span> : <span className="live">End of Quarter {s.period.current}</span> : <div><span className="live">{s.clock}</span><span className="live">&emsp;Quarter {s.period.current}</span></div> : s.period.current >= 4 ? <span className="final">Final</span> : <span>{s.startTimeEastern}</span>}
                                                 </Col>
                                                 <Col className="score">
-                                                    {!s.isGameActivated && s.period.current == 4 && s.hTeam.score > s.vTeam.score ? <p className="mb-0 won">{s.hTeam.triCode}</p> : <p className="mb-0">{s.hTeam.triCode}</p>}
+                                                    {!s.isGameActivated && s.period.current >= 4 && parseInt(s.hTeam.score) > parseInt(s.vTeam.score) ? <p className="mb-0 won">{s.hTeam.triCode}</p> : <p className="mb-0">{s.hTeam.triCode}</p>}
                                                     {setlogo(s.hTeam.triCode)}
                                                 </Col>
                                             </Row>
@@ -152,7 +153,7 @@ function Basketball() {
                                                 </Col>
                                                 <Col className="score">
                                                     {s.competitions[0].status.type.completed ? parseInt(s.competitions[0].competitors[1].score) > parseInt(s.competitions[0].competitors[0].score) ? <div><span className="won">{s.competitions[0].competitors[1].score}</span> <span>&emsp;-&emsp;</span> <span>{s.competitions[0].competitors[0].score}</span></div> : <div><span>{s.competitions[0].competitors[1].score}</span> <span>&emsp;-&emsp;</span> <span className="won">{s.competitions[0].competitors[0].score}</span></div> : <div><span>{s.competitions[0].competitors[1].score}</span> <span>&emsp;-&emsp;</span> <span>{s.competitions[0].competitors[0].score}</span></div>}
-                                                    {s.competitions[0].status.type.completed ? <p className="final mt-4">Final</p> : s.competitions[0].status.type.description == "Scheduled" ? <p className="mt-4">{s.competitions[0].status.type.detail}</p> : s.competitions[0].status.type.description == "Halftime"? <p className="mt-4 live">Haftime</p> : <p className="mt-4 live">{s.competitions[0].status.displayClock}</p>}
+                                                    {s.competitions[0].status.type.completed ? <p className="final mt-4">Final</p> : s.competitions[0].status.type.description == "Scheduled"  || s.competitions[0].status.type.description == "Postponed" ? <p className="mt-4">{s.competitions[0].status.type.detail}</p> : s.competitions[0].status.type.description == "Halftime"? <p className="mt-4 live">Haftime</p> : <p className="mt-4 live">{s.competitions[0].status.displayClock}</p>}
                                                 </Col>
                                                 <Col className="score">
                                                     {s.competitions[0].status.type.completed && parseInt(s.competitions[0].competitors[1].score) < parseInt(s.competitions[0].competitors[0].score) ? <p className="won">{s.competitions[0].competitors[0].team.displayName}</p> : <p>{s.competitions[0].competitors[0].team.displayName}</p>}

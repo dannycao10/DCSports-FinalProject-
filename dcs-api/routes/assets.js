@@ -67,7 +67,7 @@ Router.post('/validateToken', async (req, res) => {
         console.log(err);
         return res.send("Could not validate token").status(304);
     }
-})
+});
 
 Router.post('/login', async (req, res) => {
     try {
@@ -98,21 +98,12 @@ Router.post('/login', async (req, res) => {
     }
 });
 
-// Router.get("/:id", async (req, res) => {
-//     const userId = req.params.id;
-//     Users.findOne({ _id: new Mongoose.Types.ObjectId(userId.toString()) }, function (error, result) {
-//       if (error) throw error;
-//       return res.json({
-//         username: result.username,
-//         fname: result.fname,
-//         lname: result.lname,
-//         city: result.city,
-//         state: result.state,
-//         unc: result.unc,
-//         favorite: result.favorite,
-//         dcs: result.dcs,
-//       });
-//     });
-// });
+Router.put('/updateDC', async (req, res) => {
+    try{
+
+    } catch (err) {
+        return res.status(400).send("Error changing DC amount. Please try again.");
+    }
+});
 
 module.exports = Router;
