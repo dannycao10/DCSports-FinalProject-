@@ -98,9 +98,11 @@ Router.post('/login', async (req, res) => {
     }
 });
 
-Router.put('/updateDC', async (req, res) => {
+Router.put('/updateDCS', async (req, res) => {
     try{
-
+        const { user_id, _dcs } = req.body;
+        console.log(req.body)
+        await Section.findByIdAndUpdate({ _id: user_id}, {$set: { dcs: _dcs }})
     } catch (err) {
         return res.status(400).send("Error changing DC amount. Please try again.");
     }

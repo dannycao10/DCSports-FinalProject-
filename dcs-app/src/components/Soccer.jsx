@@ -116,7 +116,6 @@ function Soccer() {
                 < Container >
                     <Row>
                         {premData.map((s) => {
-                            console.log(s)
                             return (
                                 <Col className="content" xs={premData.length == 1 ? 12 : 6} key={s.id}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">

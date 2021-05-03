@@ -35,7 +35,7 @@ function OtherSports() {
                                                     <hr/>
                                                     <span className="ml-3">{s.courses[0].name}</span> <span className="mr-3">&emsp; - &emsp;Purse: {s.displayPurse}</span>
                                                     <hr/>
-                                                    {s.status.type.description == "In Progress" ? <div><p className="mt-3 live">{s.competitions[0].status.type.detail}</p></div> : <div><p className="mt-3">{s.competitions[0].status.type.detail}</p></div>}
+                                                    {s.status.type.description == "In Progress" ? <div><p className="mt-3 live">{s.competitions[0].status.type.detail}</p></div> : <div><p className={s.status.type.description == "Final" ? "mt-3 final" : "mt-3"}>{s.competitions[0].status.type.detail}</p></div>}
                                                     <hr/>
                                                     {console.log(s)}
                                                     <Row className="mt-4 mb-1">
@@ -56,7 +56,7 @@ function OtherSports() {
                                                         </Row>
                                                     { s.competitions[0].competitors.sort((a,b) => (a.ssortOrder > b.sortOrder) ? 1 : ((b.sortOrder > a.sortOrder) ? -1 : 0)).slice(0, 50).map((c) =>{
                                                         return(
-                                                        <Row className="mt-1 mb-1" key={c.athlete.displayName}>
+                                                        <Row className={s.status.type.description == "Final" && (c.status.position.displayName == "1" || c.status.position.displayName == "T1") ? "won mt-1 mb-1" : "mt-1 mb-1"} key={c.athlete.displayName}>
                                                             <hr />
                                                             <Col className="golfers ml-3"xs={2}>
                                                             <span>{c.status.position.displayName}</span>
