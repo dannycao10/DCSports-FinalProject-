@@ -77,6 +77,7 @@ function Game() {
     const [winamdr2, setWinAMDR2] = useState(0)
     const [winamdr, setWinAMDR] = useState(0)
     const [started, setStarted] = useState (false)
+    const [sstarted, setSStarted] = useState (false)
     const handleShowDR = () => setDR(true);
     const handleCloseDR = () => setDR(false);
 
@@ -168,6 +169,9 @@ function Game() {
                     setWinDR(false)
                     handleChange(e, parseInt(-bet))
                 }
+            }
+            if(sstarted == false){
+                setSStarted(true)
             }
         }, 2000);
     }
@@ -413,7 +417,7 @@ function Game() {
                                     <h5 className="gold">( Win: x1.5 Money&emsp;-&emsp;Lose: Lose Total Bet )</h5>
                                     <h5 className="gold">( If you roll the same number as the cpu you get x10 )</h5>
                                 </>}
-                            {dice == 7 ? <h4 className="mt-3 mb-2">Rolling Die ... </h4> : drg == "Single Player" ? winDR ? <h4 className="mt-3 mb-2">You rolled a {dice} and won ${winamdr}</h4> : <h4 className="mt-3 mb-2">You rolled a {dice}</h4> : !myturn ? winDR2 ? <h4 className="mt-3 mb-2">CPU rolled {cputot}, and you rolled {dice + dice2} (You won ${winamdr2})</h4> :started ? <h4 className="mt-3 mb-2">CPU rolled {cputot}, and you rolled {dice + dice2}</h4> : <h4 className="mt-3 mb-2">Press New Game to Begin</h4> : <h4 className="mt-3 mb-2">CPU rolled {dice + dice2}</h4>}
+                            {dice == 7 ? <h4 className="mt-3 mb-2">Rolling Die ... </h4> : drg == "Single Player" ? !sstarted ? <h4 className="mt-3 mb-2">Press Roll Die to Begin </h4> : winDR ? <h4 className="mt-3 mb-2">You rolled a {dice} and won ${winamdr}</h4> : <h4 className="mt-3 mb-2">You rolled a {dice}</h4> : !myturn ? winDR2 ? <h4 className="mt-3 mb-2">CPU rolled {cputot}, and you rolled {dice + dice2} (You won ${winamdr2})</h4> :started ? <h4 className="mt-3 mb-2">CPU rolled {cputot}, and you rolled {dice + dice2}</h4> : <h4 className="mt-3 mb-2">Press New Game to Begin</h4> : <h4 className="mt-3 mb-2">CPU rolled {dice + dice2}</h4>}
                             {dice == 1 ? <i className="fas fa-dice-one dice"></i> : dice == 2 ? <i className="fas fa-dice-two dice"></i>
                                 : dice == 3 ? <i className="fas fa-dice-three dice"></i> : dice == 4 ? <i className="fas fa-dice-four dice"></i>
                                     : dice == 5 ? <i className="fas fa-dice-five dice"></i> : dice == 6 ? <i className="fas fa-dice-six dice"></i>
