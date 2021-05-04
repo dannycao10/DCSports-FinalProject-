@@ -12,6 +12,12 @@
     cursor: pointer;
 }
 
+.favorite:disabled{
+    background-color: #85bb65;
+    border-color: gold;
+    opacity: .65;
+}
+
 .submitsu{
     background-color: #85bb65;
     border-color: gold;

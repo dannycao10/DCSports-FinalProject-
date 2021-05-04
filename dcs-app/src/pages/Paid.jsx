@@ -3,7 +3,7 @@ import { Image, Container, Row } from 'react-bootstrap'
 
 function Paid() {
     return (
-        <div>
+        <div className="content">
             <Row className="justify-content-md-center mt-5">
                 <Image src={logo} className="ml-5" fluid style={{ width: "15%", height: "15%" }} />
             </Row>

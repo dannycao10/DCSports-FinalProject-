@@ -129,7 +129,7 @@ export default function Signup() {
                                 {['No', 'Yes'].map(s => <option key={s} value={s}>{s}</option>)}
                             </Form.Control>
                         </Form.Group>
-                        <Button as={Col} size="lg" controlId="favorite" className="favorite">
+                        <Button  as={Col} size="lg" controlId="favorite" className="favorite" disabled>
                             Select your favorite teams
                         </Button>
                     </Form.Row>

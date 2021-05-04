@@ -22,6 +22,7 @@ function Landing() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const { userData, setUserData } = useContext(UserContext);
+    const [failed, setFailed] = useState(false);
 
     function validateForm() {
         return username.length > 0 && password.length > 0;
@@ -31,6 +32,7 @@ function Landing() {
         event.preventDefault();
         const loginUser = { username, password };
         const url = uri + "/assets/login";
+        setFailed(false);
         try {
             await Axios.post(url, loginUser).then(loginRes => {
                 setUserData({
@@ -41,6 +43,7 @@ function Landing() {
                 history.push('/');
             });
         } catch (err) {
+            setFailed(true);
             console.log(err);
         }
     }
@@ -102,6 +105,7 @@ function Landing() {
                             />
                             <h6 onClick={togglePasswordVisiblity} className="showonly">{passwordShown ? "Hide" : "Show"}</h6>
                         </Form.Group>
+                        {failed ? <h5 className="failmessage">Entered incorrect username or password</h5>: <></>}
                         <Button block size="lg" type="submit" className="loginbutton" disabled={!validateForm()}>
                             Sign In
                         </Button>

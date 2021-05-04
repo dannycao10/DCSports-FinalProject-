@@ -101,7 +101,6 @@ Router.post('/login', async (req, res) => {
 Router.put('/updateDCS', async (req, res) => {
     try{
         const { user, dcs } = req.body;
-        console.log(req.body)
         await Users.findById(Mongoose.Types.ObjectId(user)).then(u => {
             u.dcs = dcs;
             u.save();
