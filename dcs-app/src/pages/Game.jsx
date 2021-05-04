@@ -502,7 +502,7 @@ function Game() {
                     <Image src={logo} className="ml-5" fluid style={{ width: "15%", height: "15%" }} />
                 </Row>
                 <Row className="justify-content-md-center ml-5 mr-5 mt-3">
-                    <h4 className="paidtxt">Danny the dinosaur sees that you are not logged in. In order to play games you must be logged in. Please go <a href="/login">login</a>, if you don't have an account you can go <a href="/signup">signup</a>. You get 10,000 DCs (fake currency) to begin. If you're an UNC student, you get 20,000 DCs to begin.</h4>
+                    <h4 className="paidtxt">Danny the dinosaur sees that you are not logged in. In order to play games you must be logged in. Please go <a href="/login">login</a>, if you don't have an account you can go <a href="/signup">signup</a>. You get 10,000 DCs (fake currency) to begin. If you're an UNC student, you get 20,000 DCs to begin. (Favorite Teams option is currently disabled in signup)</h4>
                 </Row>
             </div>
     )

@@ -38,8 +38,9 @@ export default function Signup() {
             const loginRes = await Axios.post(uri + "/assets/login", loginUser);
             setUserData({
                 token: loginRes.data.token,
-                userInfo: loginRes.data.userInfo
+                userInfo: loginRes.data.existing
             });
+            console.log(loginRes.data.userInfo)
             localStorage.setItem("auth-token", loginRes.data.token);
             history.push('/');
         } catch (err) {
