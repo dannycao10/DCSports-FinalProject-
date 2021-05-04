@@ -1,0 +1,59 @@
+.gbutton{
+    height: 250px;
+    width: 250px;
+    font-family: Impact, fantasy;
+    font-size: 50px;
+    border-radius: 20px;
+}
+
+.games{
+    color: white;
+}
+
+.gicon{
+    font-size: 90px;
+}
+
+.gamepage{
+    text-align: center;
+    font-family: Impact, fantasy;
+    color: grey !important;
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: 60px;
+}
+
+.gamepagesm{
+    text-align: center;
+    font-family: Impact, fantasy;
+    color: grey !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.gamebutton{
+    margin: auto;
+}
+
+.gametitle{
+    margin-left: 10px;
+    font-family: Impact, fantasy;
+    color: grey !important;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.gcontent{
+    font-family: Impact, fantasy;
+    color: grey !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+.gold{
+    color:goldenrod;
+}
+
+.red{
+    color: red;
+}

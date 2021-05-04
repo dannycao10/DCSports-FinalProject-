@@ -100,6 +100,7 @@ function Baseball() {
                 < Container >
                     <Row>
                         {mlbdata.map((s) => {
+                            console.log(s)
                             return (
                                 <Col className="content" xs={mlb.length == 1 ? 12 : 6} key={s.gamePk}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
@@ -112,7 +113,7 @@ function Baseball() {
                                                 </Col>
                                                 <Col className="score">
                                                     {s.status.abstractGameState == "Preview" ? <div className="mb-4">&emsp;-&emsp;</div> : <div inline-text="true" className="mb-4">{s.teams.away.score > s.teams.home.score && s.status.abstractGameState == "Final" ? <span className="won">{s.teams.away.score}</span> : <span>{s.teams.away.score}</span>} <span>&emsp;-&emsp;</span> {s.teams.away.score < s.teams.home.score && s.status.abstractGameState == "Final" ? <span className="won">{s.teams.home.score}</span> : <span>{s.teams.home.score}</span>}</div>}
-                                                    {s.status.abstractGameState == "Live" ? <p className="live">{s.status.abstractGameState}</p> : s.status.abstractGameState == "Final" ? <p className="final">{s.status.abstractGameState}</p> : <p className="preview">{s.status.abstractGameState}</p>}
+                                                    {s.status.abstractGameState == "Live" ? <p className="live">{s.status.abstractGameState}</p> : s.status.abstractGameState == "Final" ? s.status.detailedState == "Postponed" ? <p>{s.status.detailedState}</p> : <p className="final">{s.status.abstractGameState}</p> : <p className="preview">{s.status.abstractGameState}</p>}
                                                 </Col>
                                                 <Col className="score">
                                                     {s.teams.away.score < s.teams.home.score && s.status.abstractGameState == "Final" ? <p className="won mb-0">{s.teams.home.team.name}</p> : <p className="mb-0">{s.teams.home.team.name}</p>}
