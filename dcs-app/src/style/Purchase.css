@@ -1,0 +1,12 @@
+.wallet{
+    color:goldenrod !important;
+}
+
+.adding{
+    text-align: center;
+    font-family: Impact, fantasy;
+    color: goldenrod !important;
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 40px;
+}

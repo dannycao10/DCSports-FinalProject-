@@ -10,6 +10,7 @@ import Game from '../pages/Game.jsx';
 import Free from '../pages/Free.jsx';
 import Paid from '../pages/Paid.jsx';
 import Profile from '../pages/Profile.jsx';
+import Purchase from '../pages/Purchase.jsx';
 import { useHistory } from "react-router-dom";
 import UserContext from "../context/UserContext.js";
 
@@ -35,8 +36,8 @@ function NavbarContainer() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto roboto navoption">
-                        <Nav.Link as={HLink} to="/profile">Welcome, {userData.userInfo.fname}</Nav.Link>
-                        <Nav.Link as={HLink} to="/profile">${userData.userInfo.dcs}</Nav.Link>
+                        <Nav.Link href="/profile">Welcome, {userData.userInfo.fname}</Nav.Link>
+                        <Nav.Link href="/purchase">${userData.userInfo.dcs}</Nav.Link>
                         <NavDropdown title="Place Bets" id="basic-nav-dropdown" className="position-sticky">
                             <NavDropdown.Item href="/freebets">Free Bets</NavDropdown.Item>
                             <NavDropdown.Divider />
@@ -56,7 +57,7 @@ function NavbarContainer() {
                 <Route path='/paidbets' component={Paid} />
                 <Route path='/games' component={Game} />
                 <Route path='/profile' component={Profile} />
-                <Route path='/login' component={Profile} />
+                <Route path='/purchase' component={Purchase} />
             </Switch>
         </>
 

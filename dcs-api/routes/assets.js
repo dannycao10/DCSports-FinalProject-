@@ -111,4 +111,21 @@ Router.put('/updateDCS', async (req, res) => {
     }
 });
 
+Router.put('/updateProfile', async (req, res) => {
+    try{
+        const { user, username, fname, lname, city, state} = req.body;
+        await Users.findById(Mongoose.Types.ObjectId(user)).then(u => {
+            u.username = username;
+            u.fname = fname;
+            u.lname = lname;
+            u.city = city;
+            u.state = state;
+            u.save();
+        })
+        return res.status(200).send("Update profile successfully");
+    } catch (err) {
+        return res.status(400).send("Error changing profile amount. Please try again.");
+    }
+});
+
 module.exports = Router;

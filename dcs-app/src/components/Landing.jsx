@@ -92,7 +92,7 @@ function Landing() {
                                 type="text"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
-                                className="username landingform"
+                                className="landingform"
                             />
                         </Form.Group>
                         <Form.Group size="lg" controlId="password">
