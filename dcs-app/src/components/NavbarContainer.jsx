@@ -39,9 +39,10 @@ function NavbarContainer() {
                         <Nav.Link href="/profile">Welcome, {userData.userInfo.fname}</Nav.Link>
                         <Nav.Link href="/purchase">${userData.userInfo.dcs}</Nav.Link>
                         <NavDropdown title="Place Bets" id="basic-nav-dropdown" className="position-sticky">
-                            <NavDropdown.Item href="/freebets">Free Bets</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="/paidbets">Paid Bets</NavDropdown.Item>
+                            {/* <NavDropdown.Item href="/freebets">Free Bets</NavDropdown.Item>
+                            <NavDropdown.Divider /> */}
+                            {/* <NavDropdown.Item href="/paidbets">Paid Bets</NavDropdown.Item> */}
+                            <NavDropdown.Item href="/videos">Videos</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/games">Games</NavDropdown.Item>
                             {/* <NavDropdown.Divider />
@@ -54,7 +55,8 @@ function NavbarContainer() {
             <Switch id="bodyContent">
                 <Route exact path="/" component={Home} />
                 <Route path='/freebets' component={Free} />
-                <Route path='/paidbets' component={Paid} />
+                {/* <Route path='/paidbets' component={Paid} /> */}
+                <Route path='/videos' component={Paid} />
                 <Route path='/games' component={Game} />
                 <Route path='/profile' component={Profile} />
                 <Route path='/purchase' component={Purchase} />
@@ -72,9 +74,10 @@ function NavbarContainer() {
                     <Nav className="ml-auto roboto navoption">
                         <Nav.Link as={HLink} to="/login">Login</Nav.Link>
                         <NavDropdown title="Place Bets" id="basic-nav-dropdown" className="position-sticky">
-                            <NavDropdown.Item href="/freebets">Free Bets</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="/paidbets">Paid Bets</NavDropdown.Item>
+                            {/* <NavDropdown.Item href="/freebets">Free Bets</NavDropdown.Item>
+                            <NavDropdown.Divider /> */}
+                            {/* <NavDropdown.Item href="/paidbets">Paid Bets</NavDropdown.Item> */}
+                            <NavDropdown.Item href="/videos">Videos</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/games">Games</NavDropdown.Item>
                             {/* <NavDropdown.Divider />
@@ -89,7 +92,8 @@ function NavbarContainer() {
                 <Route path='/signup' component={Signup} />
                 <Route path='/login' component={Login} />
                 <Route path='/freebets' component={Free} />
-                <Route path='/paidbets' component={Paid} />
+                {/* <Route path='/paidbets' component={Paid} /> */}
+                <Route path='/videos' component={Paid} />
                 <Route path='/games' component={Game} />
             </Switch>
         </>

@@ -58,7 +58,8 @@ function Landing() {
                 {userData.token !== undefined ? 
                 <>
                     <div className="fpg">
-                        <h3 className="landingpagesmall mb-5">Go bet (<a href="/freebets">free</a> or <a href="/paidbets">paid</a>), <a href="/games">play games</a>, check daily scores, or get sports news in the links below</h3>
+                        {/* <h3 className="landingpagesmall mb-5">Go bet (<a href="/freebets">free</a> or <a href="/paidbets">paid</a>), <a href="/games">play games</a>, check daily scores, or get sports news in the links below</h3> */}
+                        <h3 className="landingpagesmall mb-5"><a href="/games">Play games</a>, check daily scores, or get sports news in the links below</h3>
                         <Row className="">
                             <Col>
                                 <a href="https://www.nba.com/" target="_blank" rel="noopener noreferrer"><Image src={nba} className="" fluid/></a>

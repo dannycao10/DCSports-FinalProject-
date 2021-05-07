@@ -351,9 +351,9 @@ function Game() {
                     <Col className="text-center gcontent">
                         <Button className="loginbutton gbutton" onClick={handleShowDR}>Dice Roll <br /> <i className="fas fa-dice gicon"></i></Button>
                     </Col>
-                    <Col className="text-center gcontent">
+                    {/* <Col className="text-center gcontent">
                         <Button className="loginbutton gbutton" onClick={showBlackjack}>Blackjack <br /> <Image src={cards} fluid style={{ width: "90px", height: "90px" }}></Image></Button>
-                    </Col>
+                    </Col> */}
                 </Row>
 
                 <Modal show={cf} onHide={handleCloseCF} size="lg">
@@ -417,7 +417,7 @@ function Game() {
                                     <h5 className="gold">Lose: Lose Total Bet</h5>
                                 </> :
                                 <>
-                                    <h4 className="mt-2">Welcome to dice roll against the computer, where try to bet against the cpu</h4>
+                                    <h4 className="mt-2">Welcome to dice roll against the computer, where try to bet against the CPU</h4>
                                     <h5 className="gold">CPU will roll 2 dice, you bet on if you're going to roll lower or higher</h5>
                                     <h5 className="gold">( Win: x1.5 Money&emsp;-&emsp;Lose: Lose Total Bet )</h5>
                                     <h5 className="gold">( If you roll the same number as the CPU you get x10 )</h5>
@@ -512,7 +512,7 @@ function Game() {
                     <Image src={logo} className="ml-5" fluid style={{ width: "15%", height: "15%" }} />
                 </Row>
                 <Row className="justify-content-md-center ml-5 mr-5 mt-3">
-                    <h4 className="paidtxt">Danny the dinosaur sees that you are not logged in. In order to play games you must be logged in. Please go <a href="/login">login</a>, if you don't have an account you can go <a href="/signup">signup</a>. You get 10,000 DCs (fake currency) to begin. If you're an UNC student, you get 20,000 DCs to begin. (Favorite Teams option is currently disabled in signup)</h4>
+                    <h4 className="paidtxt">Danny the dinosaur sees that you are not logged in. In order to play games you must be logged in. Please go <a href="/login">login</a>, if you don't have an account you can go <a href="/signup">signup</a>. You get 10,000 DCs (fake currency) to begin. If you're an UNC student, you get 20,000 DCs to begin.</h4>
                 </Row>
             </div>
     )
