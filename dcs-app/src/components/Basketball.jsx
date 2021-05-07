@@ -109,7 +109,6 @@ function Basketball() {
                 < Container >
                     <Row>
                         {nbaData.map((s) => {
-                            console.log(s)
                             return (
                                 <Col className="content" xs={nbaData.length == 1 ? 12 : 6} key={s.gameId}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">

@@ -14,3 +14,7 @@
 .pgascore{
     text-align: right;
 }
+
+.golfrow{
+    min-width: 500px;
+}

@@ -11,11 +11,12 @@ import gold from '../images/dollarcoin.png'
 import flipping from '../images/flipping.gif'
 import logo from '../images/dannydino.png'
 import rolling from '../images/rolling.gif'
+import Blackjack from '../components/Blackjack.jsx'
 
 function Game() {
     const { userData, setUserData } = useContext(UserContext);
     const [dcs, setDCS] = useState(userData.userInfo.dcs);
-    const [action, setAction] = useState(true)
+
     useEffect(() => { setDCS(userData.userInfo.dcs) }, [userData.userInfo.dcs])
 
     const handleChange = async (e, amount) => {
@@ -219,11 +220,11 @@ function Game() {
                 if(myturn && store - 1 < 0 && drEventcpu == "Higher"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 1 > 0 && drEventcpu == "Lower"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 1 == 0){
                     setWinDR2(true)
                     setWinAMDR2(bet * 10)
@@ -237,11 +238,11 @@ function Game() {
                 if(myturn && store - 2 < 0 && drEventcpu == "Higher"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 2 > 0 && drEventcpu == "Lower"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 2 == 0){
                     setWinDR2(true)
                     setWinAMDR2(bet * 10)
@@ -255,11 +256,11 @@ function Game() {
                 if(myturn && store - 3 < 0 && drEventcpu == "Higher"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 3 > 0 && drEventcpu == "Lower"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 3 == 0){
                     setWinDR2(true)
                     setWinAMDR2(bet * 10)
@@ -273,11 +274,11 @@ function Game() {
                 if(myturn && store - 4 < 0 && drEventcpu == "Higher"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 4 > 0 && drEventcpu == "Lower"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 4 == 0){
                     setWinDR2(true)
                     setWinAMDR2(bet * 10)
@@ -291,11 +292,11 @@ function Game() {
                 if(myturn && store - 5 < 0 && drEventcpu == "Higher"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 5 > 0 && drEventcpu == "Lower"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 5 == 0){
                     setWinDR2(true)
                     setWinAMDR2(bet * 10)
@@ -309,11 +310,11 @@ function Game() {
                 if(myturn && store - 6 < 0 && drEventcpu == "Higher"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 6 > 0 && drEventcpu == "Lower"){
                     setWinDR2(true)
                     setWinAMDR2(bet * 1.5)
-                    handleChange(e, parseInt(bet) * 0.5)
+                    handleChange(e, Math.ceil(parseInt(bet) * 0.5))
                 } else if (myturn && store - 6 == 0){
                     setWinDR2(true)
                     setWinAMDR2(bet * 10)
@@ -329,6 +330,11 @@ function Game() {
             }
         }, 2000);
     }
+
+    const [blackjack, setBlackjack] = useState(false);
+
+    const showBlackjack = () => { setBlackjack(true) }
+    const hideBlackjack = () => { setBlackjack(false) }
 
     return (
         (userData.token !== undefined) ?
@@ -346,7 +352,7 @@ function Game() {
                         <Button className="loginbutton gbutton" onClick={handleShowDR}>Dice Roll <br /> <i className="fas fa-dice gicon"></i></Button>
                     </Col>
                     <Col className="text-center gcontent">
-                        <Button className="loginbutton gbutton">Blackjack <br /> <Image src={cards} fluid style={{ width: "90px", height: "90px" }}></Image></Button>
+                        <Button className="loginbutton gbutton" onClick={showBlackjack}>Blackjack <br /> <Image src={cards} fluid style={{ width: "90px", height: "90px" }}></Image></Button>
                     </Col>
                 </Row>
 
@@ -498,6 +504,7 @@ function Game() {
                     </Button>
                     </Modal.Footer>
                 </Modal>
+                <Blackjack hideBlackjack={hideBlackjack} blackjack={blackjack} />
             </div>
             :
             <div className="content">

@@ -62,3 +62,8 @@
     font-size: 400px;
     color: black;
 }
+
+.bjcard{
+    width: 100px !important;
+    height: 100px !important;
+}

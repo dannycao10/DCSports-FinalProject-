@@ -23,24 +23,23 @@ function OtherSports() {
             <hr />
             {pgaData.length == 0 ? <h1 className="landingpagesmall mt-3">There is no PGA Tour today</h1> :
                 < Container >
-                    <Row>
+                    <Row className="golfrow">
                         {pgaData.map((s) => {
                             return (
                                 <Col className="content" xs={pgaData.length == 1 ? 12 : 6} key={s.name}>
                                     <Card className="mt-3 mb-3 border-0 shadow cards">
                                         <Card.Body>
-                                            <Row>
+                                            <Row className="">
                                                 <div className="mustcenter">
                                                     <p className="pgaName">{s.name}</p>
                                                     <hr />
                                                     <span className="ml-3">{s.courses[0].name}</span> <span className="mr-3">&emsp; - &emsp;Purse: {s.displayPurse}</span>
                                                     <hr />
                                                     {s.status.type.description == "In Progress" ? <div><p className="mt-3 live">{s.competitions[0].status.type.detail}</p></div> : <div><p className={s.status.type.description == "Final" ? "mt-3 final" : "mt-3"}>{s.competitions[0].status.type.detail}</p></div>}
-                                                    {console.log(s)}
                                                     {s.status.type.description == "Scheduled" || s.status.type.description == "Postponed" ? <></> :
                                                         <>
                                                             <hr />
-                                                            <Row className="mt-4 mb-1">
+                                                            <Row className="mt-4 mb-1 golfrow">
                                                                 <hr />
                                                                 <Col className="golfers ml-3" xs={2}>
                                                                     <span>Pos</span>
@@ -58,7 +57,7 @@ function OtherSports() {
                                                             </Row>
                                                             {s.competitions[0].competitors.sort((a, b) => (a.ssortOrder > b.sortOrder) ? 1 : ((b.sortOrder > a.sortOrder) ? -1 : 0)).slice(0, 50).map((c) => {
                                                                 return (
-                                                                    <Row className={s.status.type.description == "Final" && (c.status.position.displayName == "1" || c.status.position.displayName == "T1") ? "won mt-1 mb-1" : "mt-1 mb-1"} key={c.athlete.displayName}>
+                                                                    <Row className={s.status.type.description == "Final" && (c.status.position.displayName == "1" || c.status.position.displayName == "T1") ? "won mt-1 mb-1 golfrow" : "mt-1 mb-1 golfrow"} key={c.athlete.displayName}>
                                                                         <hr />
                                                                         <Col className="golfers ml-3" xs={2}>
                                                                             <span>{c.status.position.displayName}</span>
