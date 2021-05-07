@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from '../context/UserContext.js';
 import cards from '../images/cards.png'
 import uri from '../context/APIPort';
-// import { Hand, Card, CardBack } from 'react-deck-o-cards';
+import { Hand, Card, CardBack } from 'react-deck-o-cards';
 
 const Blackjack = (props) => {
     const { userData, setUserData } = useContext(UserContext);
