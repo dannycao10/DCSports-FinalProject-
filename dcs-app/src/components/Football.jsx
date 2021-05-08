@@ -11,13 +11,13 @@ function Football() {
     const [action, setAction] = useState(true);
 
     async function getSchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard");
         const schedule = await response.json();
         setNFLData(schedule.events);
     }
 
     async function getNCAASchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard");
         const schedule = await response.json();
         setNCAAData(schedule.events);
     }

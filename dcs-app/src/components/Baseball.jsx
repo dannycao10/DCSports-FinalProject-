@@ -10,7 +10,7 @@ function Baseball() {
     const [gameD, setGameData] = useState({});
 
     async function getSchedule() {
-        const response = await fetch("http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1");
+        const response = await fetch("https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1");
         const schedule = await response.json();
         setMLBData(schedule.dates[0].games);
     }
@@ -20,7 +20,7 @@ function Baseball() {
     }, [])
 
     async function getGame(id) {
-        const response = await fetch("http://statsapi.mlb.com/" + id);
+        const response = await fetch("https://statsapi.mlb.com/" + id);
         const game = await response.json();
         setGameData(game.gameData);
     }

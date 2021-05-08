@@ -15,37 +15,37 @@ function Soccer() {
     const [action, setAction] = useState(true);
 
     async function getCHAMPSchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard");
         const schedule = await response.json();
         setCHAMPData(schedule.events);
     }
 
     async function getENGSchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard");
         const schedule = await response.json();
         setPREMData(schedule.events);
     }
 
     async function getLIGASchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard");
         const schedule = await response.json();
         setLIGAData(schedule.events);
     }
 
     async function getGERSchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard");
         const schedule = await response.json();
         setGERData(schedule.events);
     }
 
     async function getITASchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard");
         const schedule = await response.json();
         setITAData(schedule.events);
     }
 
     async function getFRASchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard");
         const schedule = await response.json();
         setFRAData(schedule.events);
     }

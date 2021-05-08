@@ -15,13 +15,13 @@ function Basketball() {
         let date = new Date()
         date.setHours(date.getHours() - 7);
         date = date.toISOString().split('T')[0].replace('-', '').split('T')[0].replace('-', '');
-        const response = await fetch("http://data.nba.net/10s/prod/v2/" + date + "/scoreboard.json");
+        const response = await fetch("https://data.nba.net/10s/prod/v2/" + date + "/scoreboard.json");
         const schedule = await response.json();
         setNBAData(schedule.games);
     }
 
     async function getNCAASchedule() {
-        const response = await fetch("http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard");
+        const response = await fetch("https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard");
         const schedule = await response.json();
         setNCAAData(schedule.events);
     }
