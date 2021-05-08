@@ -53,3 +53,7 @@
     color: grey !important;
     font-weight: bold;
 }
+
+.pichover:hover{
+    cursor: pointer;
+}
