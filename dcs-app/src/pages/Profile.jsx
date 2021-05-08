@@ -13,15 +13,7 @@ import Axios from "axios"
 
 function Profile() {
     const { userData, setUserData } = useContext(UserContext);
-    const [profpic, setPP] = useState(red)
     const profile = [red, green, yellow, blue]
-    const changePP = () => {
-        let newp = profile[Math.floor(Math.random()*profile.length)];
-        while(newp == profpic){
-            newp = profile[Math.floor(Math.random()*profile.length)];
-        }
-        setPP(newp);
-    };
 
     const [username, setUsername] = useState(userData.userInfo.username);
     const [fname, setFname] = useState(userData.userInfo.fname);
@@ -69,7 +61,7 @@ function Profile() {
         <div className="profilepage">
             <Row className="profilerow">
                 <Col className={userData.userInfo.unc ? "uncprof" : "mainprof"}>
-                    <Image src={profpic} fluid style={{ width: "300px", height: "300px" }} className="mt-4 pichover" onClick={changePP}></Image>
+                    <Image src={green} fluid style={{ width: "300px", height: "300px" }} className="mt-4"></Image>
                     <h1 className="mt-4 mb-5 username">@{userData.userInfo.username}</h1>
                 </Col>
                 <Col className="profsect">
